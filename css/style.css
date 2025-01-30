@@ -1,9 +1,15 @@
+/* General Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif; /* Modern, clean font */
     background: linear-gradient(to bottom, #a0c4ff, #f0f0f0);
     padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
+/* Weather Container */
 .container {
     background: white;
     border-radius: 15px;
@@ -11,56 +17,156 @@ body {
     max-width: 600px;
     margin: auto;
     padding: 2.5rem;
+    transition: all 0.3s ease-in-out;
 }
 
+/* Logo */
 .logo {
-    max-width: 220px; /* Increased the size of the logo */
-    height: auto;
-    border-radius: 50%; /* Make the logo fully rounded */
+    width: 180px; 
+    height: 180px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 4px solid white; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    margin-bottom: 20px;
 }
 
-#weather-info {
-    margin-top: 1.5rem;
+/* Input Group Styling */
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .input-group .form-control {
     border-right: 0;
-    border-radius: 15px 0 0 15px;
+    border-radius: 10px 0 0 10px;
+    padding: 12px;
+    font-size: 1.1rem;
 }
 
 .input-group .input-group-append .btn {
-    border-radius: 0 15px 15px 0;
+    border-radius: 0 10px 10px 0;
+    padding: 12px;
+    font-size: 1.1rem;
+    background: #007BFF;
+    border: none;
+    transition: 0.3s ease-in-out;
 }
 
+.input-group .input-group-append .btn:hover {
+    background: #0056b3;
+}
+
+/* Autocomplete Dropdown Styling */
+.suggestion-list {
+    position: absolute;
+    z-index: 1000;
+    background: white;
+    width: 100%;
+    max-width: 550px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    top: 100%;
+    left: 0;
+    display: none;
+}
+
+.suggestion-item {
+    padding: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    font-size: 1rem;
+    transition: background 0.2s ease-in-out;
+}
+
+.suggestion-item:hover {
+    background: #007BFF;
+    color: white;
+}
+
+/* Weather Card */
 .card {
     border: none;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card-body h2 {
+    font-size: 1.6rem;
+    color: #333;
 }
 
 .card-body p {
+    font-size: 1.1rem;
     margin: 0.5rem 0;
 }
 
-.text-danger {
-    color: #e74c3c;
+/* Weather Icon Styling */
+.weather-icon {
+    font-size: 2rem;
+    margin-right: 10px;
 }
 
+/* Error Message */
+.text-danger {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Unit Select */
 select.form-control {
     margin-top: 1rem;
     border-radius: 15px;
     text-align: center;
+    padding: 10px;
+    font-size: 1.1rem;
 }
 
-button.btn-primary {
-    background: #007BFF;
-    transition: background 0.3s ease;
+/* Animate Weather Info */
+#weather-info {
+    animation: fadeIn 0.6s ease-in-out;
 }
 
-button.btn-primary:hover {
-    background: #0056b3;
+/* Subtle Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.animate__fadeIn {
-    animation-duration: 1.5s;
+/* Background Gradient Based on Weather */
+.sunny-bg {
+    background: linear-gradient(to bottom, #FFD700, #FFA500);
+}
+
+.cloudy-bg {
+    background: linear-gradient(to bottom, #D3D3D3, #A9A9A9);
+}
+
+.rainy-bg {
+    background: linear-gradient(to bottom, #6D7FCC, #536976);
+}
+
+.snowy-bg {
+    background: linear-gradient(to bottom, #E3EAF3, #BCC6CC);
+}
+
+.night-bg {
+    background: linear-gradient(to bottom, #2C3E50, #1C2833);
 }
